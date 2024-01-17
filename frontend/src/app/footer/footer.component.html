@@ -1,0 +1,53 @@
+<div *ngIf="isBrowser" class="fc" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center"
+    fxLayoutGap="10px">
+    <span fxShow.lt-md></span>
+    <!-- <span fxShow.lt-md></span> -->
+
+    <div fxHide fxShow.gt-sm>
+
+        <div fxLayoutAlign="flex-start" class="home-logo-text">Copyright © 2019 Tesfa Tube Ethiopia</div>
+    </div>
+
+    <span fxShow.lt-md></span>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+
+        <a [routerLink]="['/about']" class="home-logo-text" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">About Us
+        </a>
+
+        <a [routerLink]="['/privacy']" class="home-logo-text" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Privacy
+        </a>
+
+        <a [routerLink]="['/contact']" class="home-logo-text" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Contact Us
+        </a>
+
+    </div>
+
+
+    <span fxShow.lt-md></span>
+
+    <div fxHide fxShow.lt-md>
+        <div fxLayoutAlign="flex-start" class="home-logo-text">Copyright © 2019 Tesfa Tube Ethiopia</div>
+    </div>
+    <div>
+
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+            <p class="home-logo-text">Connect With Us</p>
+
+            <a href="https://www.facebook.com/pg/Tesfatube" target="_blank">
+                <span class="fa fa-facebook"></span>
+            </a>
+            <a href="https://t.me/Tesfatube" target="_blank">
+                <span class="fa fa-telegram"></span>
+            </a>
+
+            <!-- <span class="fa fa-twitter"></span> -->
+            <span class="fa fa-linkedin"></span>
+            <span class="fa fa-youtube"></span>
+
+
+        </div>
+    </div>
+</div>

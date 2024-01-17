@@ -1,0 +1,72 @@
+<div fxLayout="column" style="    background: #e8eaf6;" fxLayoutAlign="center center">
+
+    <div class="manage-container" fxLayout="row" fxLayoutGap="15px">
+        <div class="manage-side-nav">
+            <div class="manage-side-nav-items" fxLayout="column">
+                <app-manage-panel></app-manage-panel>
+            </div>
+         </div>
+        <div class="manage-content" fxLayout="column" fxLayoutGap="10px">
+            <form fxLayout="column" fxLayoutGap="10px" class="add-user-form" fxLayoutAlign="center center" #f="ngForm"
+                (ngSubmit)="addUser(f)">
+                <h3 *ngIf="(error$!='')" style="color:red">{{error$}}</h3>
+                <h3 *ngIf="success$!=''" style="color:green">{{success$}}<br></h3>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="first name" minlength="3" ngModel name="fname" required
+                        #fname="ngModel">
+                    <mat-error *ngIf="!fname.value">First name required. </mat-error>
+                    <mat-error *ngIf="fname.value && !fname.valid">First name length should be > 3. </mat-error>
+                    <!-- <mat-error *ngIf="!fname.valid">First name required. </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="text" matInput minlength="3" placeholder="last name" ngModel name="lname" required
+                        #lname="ngModel">
+                    <mat-error *ngIf="!lname.value">Last name required. </mat-error>
+                    <mat-error *ngIf="lname.value && !lname.valid">Last name length should be > 3. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="text" matInput placeholder="user name" minlength="3" ngModel name="userName" required
+                        #userName="ngModel">
+                    <mat-error *ngIf="!userName.value">User name required. </mat-error>
+                    <mat-error *ngIf="userName.value && !userName.valid">User name length should be > 3. </mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="email" matInput placeholder="email" [email]="true" ngModel name="email" required
+                        #email="ngModel">
+                    <mat-error *ngIf="!email.value">Email required. </mat-error>
+                    <mat-error *ngIf="!email.valid && email.value">Email is not valid. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="number" matInput placeholder="phone, ex. 091833..." ngModel name="phone" required
+                        #phone="ngModel">
+                    <mat-error *ngIf="!phone.value">Phone number required. </mat-error>
+                    <mat-error *ngIf="phone.value && !phone.valid">Phone number length should be > 10. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select placeholder="role" ngModel name="role" required #role="ngModel">
+                        <mat-option *ngFor="let role of roles" [value]="role.value">
+                            {{role.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="!role.valid">Catagory is require. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="password" minlength='3' matInput placeholder="password" ngModel name="password"
+                        required #password="ngModel">
+                    <mat-error *ngIf="!password.value">Password required. </mat-error>
+                    <mat-error *ngIf="password.value && !password.valid">Password length should be > 10. </mat-error>
+                </mat-form-field>
+
+                <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Post</button>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,263 @@
+.home-top {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contener {
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  align-items: center;
+  background: #e8eaf6;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.home-tabs {
+  width: 100%;
+  background: white;
+}
+
+.mat-tab-label {
+  color: #1a237e;
+  font-weight: bold;
+}
+
+/* Styles for the active tab label */
+
+.mat-tab-label-active {
+  color: rgb(92, 92, 240);
+}
+
+/* Styles for the ink bar */
+
+.mat-ink-bar {
+  background-color: green;
+}
+
+.divider-container-reserved {
+  padding: 0;
+  width: 100%;
+  height: 255px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.divider-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow: inherit;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.home-divider {
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+  background: white;
+  overflow: initial;
+  padding: 0 15px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 1239px;
+  border: 0.5px #cfd8dc solid;
+}
+
+.cat-title {
+  font-size: 55px;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 600;
+  color: rgb(66, 60, 60);
+  padding-left: 8px;
+  font-family: "Roboto Thin", "Helvetica Neue", "Helveica", "Arial", sans-serif;
+  font-size: 1em;
+}
+
+.home-divider a:hover {
+  color: rgb(4, 31, 121);
+}
+
+.carousel {
+  width: 100%;
+}
+
+.video-cards {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0;
+}
+
+.video-cards a {
+  text-decoration: none;
+  width: 198px;
+}
+
+.video-card {
+  margin: 3px;
+}
+
+.show-more-btn {
+  color: rgb(233, 79, 79);
+  text-decoration: none;
+  font-weight: 600;
+  padding-left: 5px;
+  padding-top: 20px;
+  font-family: "Roboto Thin", "Helvetica Neue", "Helveica", "Arial", sans-serif;
+  font-size: 1em;
+}
+
+#show-more-btn-m {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Roboto Thin", "Helvetica Neue", "Helveica", "Arial", sans-serif;
+  color: rgb(233, 79, 79);
+}
+
+.divider-titles {
+  display: flex;
+  height: auto;
+  overflow: hidden;
+}
+
+.mat-h3 {
+  font-weight: bold;
+  width: 100%;
+  margin-left: 9px;
+}
+
+.privew-fab {
+  z-index: 1;
+  top: 5px;
+  left: 25px;
+}
+
+.next-fab {
+  z-index: 1;
+  top: 5px;
+  right: 25px;
+}
+
+/* mobile mode */
+
+.mobile-view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.mob-home-divider {
+  display: flex;
+  background: rgb(181, 186, 189);
+  background: white;
+  padding: 10px;
+  width: 94%;
+  height: auto;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.mob-divider-titles {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.mob-divider-titles a {
+  text-decoration: none;
+  color: rgb(63, 63, 63);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mob-divider-titles a:hover {
+  color: rgb(4, 31, 121);
+}
+
+.mob-video-cards {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mob-video-cards a {
+  text-decoration: none;
+}
+
+.mob-video-card {
+  margin-top: 10px;
+}
+
+.mob-see-more-botton {
+  padding-top: 10px;
+}
+
+/* end */
+
+/* option two */
+
+/* copye from home componenr */
+
+.divider-container2 {
+  align-items: center;
+  width: 96%;
+  padding: 30px 15px 15px 15px;
+  background: white;
+  background: rgb(181, 186, 189);
+}
+
+.video-cards2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.video-card2 {
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+.mat-h32 {
+  font-weight: bold;
+  width: 100%;
+  margin-left: 9px;
+}
+
+/* end */
+
+/* end */

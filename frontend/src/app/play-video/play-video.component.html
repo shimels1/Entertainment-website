@@ -1,0 +1,274 @@
+<div fxLayout="column">
+    <span id="top"></span>
+    <div *ngIf="!isBrowser" class="home-top">
+        <div style="color: #424242;margin-top:10px">
+            <!-- <mat-spinner [diameter]="50"></mat-spinner> -->
+            <p> Loading... </p>
+        </div>
+    </div>
+    <div *ngIf="tt && isBrowser" class="player-container" fxLayoutAlign="center center" id="top-of-page">
+        <div class="player-itmes-container" fxLayout="row" fxLayoutAlign="center start" fxLayout.lt-md="column">
+
+            <div fxLayout="column" class="player-div" fxLayoutAlign="center center">
+
+                <div [style.height.px]="height" [class.mat-elevation-z4]="IsElivation" fxLayout="row"
+                    class="youtubeIfream">
+                    <iframe *ngIf="url" [@fadeIn] fxFlex width="853" [height]="height" [src]="url" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <!-- <iframe [style.visibility]="url ? 'visible' : 'hidden'" [@fadeIn] fxFlex width="853" [height]="height" [src]="url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                </div>
+
+                <div fxLayout="column" fxLayout.lt-md="column" class="about-video-content"
+                    [class.mat-elevation-z4]="IsElivation">
+                    <div class="about-video-title">
+                        {{video$.title}}
+                    </div>
+
+                    <div class="about-video-share-div" fxLayout="row" fxLayout.lt-md="column">
+                        <span fxFlex class="about-video-share-views-text">
+                            <span *ngIf="views$">
+                                {{ views$ | number }} views
+                            </span>
+                        </span>
+                        <!-- <fb-like url="https://diretube.com/go/555"></fb-like> -->
+                        <span>
+
+                            <button [style.color]="IsUserLikeThisVideo$? '#1565c0' : 'gray' "
+                                *ngIf="userAuthService.isLogedIn() " type="button" mat-button (click)="like()">
+                                <mat-icon class="mat-18">thumb_up</mat-icon>
+                                <span *ngIf="likes$!=null && youtube_like$!=null">
+
+                                    {{ likes$+youtube_like$ | number }}
+
+
+                                </span>
+                            </button>
+                            <button *ngIf="!userAuthService.isLogedIn()  " type="button" mat-button
+                                [matMenuTriggerFor]="likeMenu">
+                                <mat-icon class="about-video-icons" style="color:gray">thumb_up</mat-icon>
+                                <span *ngIf="likes$!=null && youtube_like$!=null">
+
+                                    {{ likes$+youtube_like$ | number }}
+
+
+                                </span>
+                            </button>
+                            <mat-menu #likeMenu="matMenu">
+                                <div style="padding:25px 20px">
+                                    Sign in to like this video.
+                                </div>
+                                <mat-divider></mat-divider>
+                                <button mat-button (click)="LoginDialog()" style="color:#1565c0;margin:5px 0 0 5px">SIGN
+                                    IN</button>
+                            </mat-menu>
+                            <mat-menu #dislikeMenu="matMenu">
+                                <div style="padding:25px 20px">
+                                    Sign in to dislike this video.
+                                </div>
+                                <mat-divider></mat-divider>
+                                <button mat-button (click)="LoginDialog()" style="color:#1565c0;margin:5px 0 0 5px">SIGN
+                                    IN</button>
+                            </mat-menu>
+
+                            <button [style.color]="IsUserDisLikeThisVideo$? '#1565c0' : 'gray' "
+                                *ngIf="userAuthService.isLogedIn()" type="button" mat-button (click)="dislike()">
+                                <mat-icon class="about-video-icons">thumb_down</mat-icon>
+                                <span *ngIf="youtube_dislike$!=null">
+
+                                    {{dislikes$+youtube_dislike$ | number}}
+                                </span>
+                            </button>
+                            <button *ngIf="!userAuthService.isLogedIn()" type="button" mat-button
+                                [matMenuTriggerFor]="dislikeMenu">
+                                <mat-icon class="about-video-icons" style="color:gray">thumb_down</mat-icon>
+                                <span *ngIf="youtube_dislike$!=null">
+                                    {{dislikes$+youtube_dislike$ | number}}
+                                </span>
+                            </button>
+
+                            <button mat-button [matMenuTriggerFor]="more_menu">
+                                <mat-icon class="about-video-icons">more_horiz</mat-icon>
+                                More
+                            </button>
+                            <mat-menu #more_menu="matMenu">
+                                <button mat-menu-item (click)="shareDialog()">
+                                    Report &nbsp;&nbsp;&nbsp;<mat-icon class="about-video-icons">flag</mat-icon>
+
+                                </button>
+                            </mat-menu>
+
+
+                        </span>
+                    </div>
+                    <div>share this video</div>
+
+                    <div id="share">
+                        <span shareButton="facebook" [url]="currentUrl" class="fa fa-facebook"></span>
+                        <span shareButton="twitter" [url]="currentUrl" class="fa fa-twitter"></span>
+                        <span shareButton="telegram" [url]="currentUrl" class="fa fa-telegram"></span>
+                        <span shareButton="whatsapp" [url]="currentUrl" class="fa fa-whatsapp"></span>
+                        <span shareButton="linkedin" [url]="currentUrl" class="fa fa-linkedin"></span>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="about-video-discription-text">
+                        <p style="color: gray">Posted date: 24 Dec 2018</p>
+                        <p style="white-space: pre-wrap">
+                            {{video$.discription}}
+                        </p>
+                        <div style="white-space: pre-wrap">
+                            <p>BethTube is an entertainment website for the Ethiopian community.
+                                in this website we will embed chosen entertainment and Technology videos posted from
+                                youtube.
+                            </p>
+                            Connect With Us with
+                            <ul>
+                                <li> Facebook : https://www.facebook.com/pg/bethtube</li>
+                                <li> Telegram : https://t.me/bethtube</li>
+                            </ul>
+
+                        </div>
+                        <mat-form-field [fxHide]="!isUpdateReady" style="width: 100%">
+                            <textarea [(ngModel)]="disc_update" matInput #du placeholder="update the discription hear."
+                                name="comment" ngModel (focus)="onFocus('S')" [value]="video$.discription"
+                                (blur)="onBlurMethod()" style=" height: 200px;border :0.5px solid gray "></textarea>
+                        </mat-form-field>
+                        <button *ngIf="isUpdateReady && staffAuthService.isLogedIn()" (click)="updateDisc(du.value)"
+                            mat-raised-button style="
+                       background: yellow;color:black" type="button">UPDATE</button>
+                        <button *ngIf="!isUpdateReady && staffAuthService.isLogedIn()" mat-raised-button style="
+                        background: yellow;color:black" type="button" (click)="isUpdateReady=true">UPDATE
+                            DISCRIPTION</button>
+                    </div>
+
+                </div>
+
+                <!-- comments -->
+                <div class="comment-container" fxLayout="column" [class.mat-elevation-z4]="IsElivation">
+
+                    <div class="comment-head-title-div" fxLayout="row">
+                        <span>{{this.numberOfComments$}} Comments </span>
+
+                        <button mat-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="about-video-icons">filter_list</mat-icon>Sort
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="changeFilterState('DESC')">Newest first</button>
+                            <button mat-menu-item (click)="changeFilterState('ASC')">Older first</button>
+                        </mat-menu>
+
+                    </div>
+                    <form class="comment-form" fxLayout="column" #f="ngForm">
+
+                        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                            <img class="comment-image" *ngIf="userAuthService.getUser().photourl"
+                                [src]="userAuthService.getUser().photourl">
+                            <mat-form-field style="width: 100%">
+                                <textarea [(ngModel)]="commentTa" matInput #ta placeholder="Add a comment"
+                                    name="comment" ngModel (focus)="onFocus('S')" (blur)="onBlurMethod()"></textarea>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px">
+                            <!-- <button mat-button>CANCEL</button> -->
+                            <button *ngIf="userAuthService.isLogedIn()" (click)="comment(ta.value)"
+                                [disabled]="ta.value.length<3" mat-flat-button color="primary"
+                                type="button">COMMENT</button>
+                            <button *ngIf="!userAuthService.isLogedIn()" (click)="LoginDialog()" mat-flat-button
+                                color="primary" type="button" style="   background: #3B5998;color:white">
+                                <!-- <span class="fa1 fa-facebook" style="color: white;"></span> -->
+                                Login To Comment</button>
+                        </div>
+                    </form>
+
+                    <div fxLayout="column" fxLayoutGap="10px">
+                        <app-comment-card [@fadeIn] *ngFor="let comment of seeMoreComment$" [comment]="comment">
+                        </app-comment-card>
+                        <div *ngIf="showMoreCommentButton">
+                            <div class="mob-see-more-botton">
+                                <button mat-button color="warn" (click)="showMoreComment()">
+                                    <mat-icon class="mat-18">keyboard_arrow_down</mat-icon>
+                                    SHOW MORE
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+            <!-- for play que-->
+
+            <div class="play-que" fxLayout="column" fxLayoutAlign="start start">
+                <div class="mob-home-divider" fxLayout="column" [class.mat-elevation-z4]="IsElivation">
+
+                    <div class="mob-divider-titles" fxLayout="row">
+
+                        <p *ngIf="this.selectedCategory$ "> More {{ this.selectedCategory$ | titlecase }}</p>
+
+                    </div>
+                    <div *ngIf="!isMobile" fxLayout="column" class="mob-video-cards" fxLayoutAlign="start start">
+                        <a [@fadeIn] class="mob-video-card" *ngFor="let item of seeMoreVideos$"
+                            [routerLink]="['/playVideo']"
+                            [queryParams]="{id:item.idvideo,title:item.title,image:item.image}">
+
+                            <app-next-play-video-card [data]="item">
+                            </app-next-play-video-card>
+                        </a>
+                    </div>
+                    <div *ngIf="isMobile" fxLayout="column" class="mob-video-cards" fxLayoutAlign="start start">
+                        <a [@fadeIn] class="mob-video-card" *ngFor="let item of seeMoreVideos$"
+                            [routerLink]="['/playVideo']"
+                            [queryParams]="{id:item.idvideo,title:item.title,image:item.image}">
+                            <app-mob-video-card [data]="item">
+                            </app-mob-video-card>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="mob-see-more-botton">
+                            <button *ngIf="showMoreVideoButton && seeMoreVideos$.length>0 " mat-button color="warn"
+                                (click)="showMoreVideo()">
+                                <mat-icon class="mat-18">keyboard_arrow_down</mat-icon>
+                                SHOW MORE
+                            </button>
+                            <a style="text-decoration: none;padding:10dp;"
+                                *ngIf="!showMoreVideoButton  && seeMoreVideos$.length>0  " [routerLink]="">
+                                <button mat-button color="warn">
+
+                                    back to home page.
+                                </button>
+                            </a>
+                            <a style="text-decoration: none;padding:10dp;"
+                                *ngIf="seeMoreVideos$.length===0  && seeMoreVideo>1 " [routerLink]="">
+                                <button mat-button color="warn">
+
+                                    back to home page.
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <!-- end mobile -->
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>

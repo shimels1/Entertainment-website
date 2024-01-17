@@ -1,0 +1,41 @@
+.nav-contener {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-contener a {
+  flex: 1;
+}
+
+/* side nav */
+
+a {
+  text-decoration: none;
+  /* color: white */
+  padding-right: 24px;
+  color: gray;
+}
+
+.active {
+  color: black !important;
+  /* background: #c5cae9 !important; */
+  background: #c5cae9 !important;
+}
+
+mat-icon {
+  padding-right: 24px;
+  padding-left: 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  /* background: black; */
+  padding-right: 24px;
+  padding-left: 10px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+}
+
+/* end */

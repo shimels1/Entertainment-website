@@ -1,0 +1,15 @@
+.manage-container{
+height: 100%;
+width: 96%;
+padding: 20px 50px;
+}
+
+.manage-side-nav{
+flex:1;
+background: slategrey;
+}
+
+.manage-content{
+flex:3;
+background: olive;
+}

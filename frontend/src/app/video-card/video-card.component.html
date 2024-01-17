@@ -1,0 +1,25 @@
+<div fxLayout="column" [class.mat-elevation-z0]="true" class="video-card" fxLayoutGap="5px">
+    <div class="container">
+        <img class="image" [src]="data.image">
+
+        <div class="overlay">
+            <mat-icon class="play_arrow">play_circle_filled</mat-icon>
+        </div>
+    </div>
+    <div class="title-text-div" fxLayout="column">
+        <span class="title-text" [matTooltip]="data.title" matTooltipClass="tooltip">
+      {{data.title}}
+    </span>
+        <span class="date-and-view-text">
+         
+        <span  >
+      {{views$ |number}} views
+      <!-- . {{ data.date | date }} -->
+    </span> &nbsp;
+        </span>
+    </div>
+</div>
+
+<!-- <div class="play-arrow-div">
+    <mat-icon class="play_arrow">play_arrow</mat-icon>
+</div> -->

@@ -1,0 +1,88 @@
+.fc {
+  width: 100%;
+  /* background: rgb(43, 54, 54); */
+  background: white;
+  border-top: 0.5px #cfd8dc solid;
+  padding: 5px 0;
+  padding-right: 4%;
+  padding-left: 4%;
+}
+
+.fc div {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+#fmenu-items {
+  list-style: none;
+}
+
+.home-logo-text {
+  font-size: 14px;
+  color: #424242;
+  /* padding: 0 5px; */
+}
+
+.active {
+  color: darkgoldenrod;
+}
+
+.fa {
+  padding: 6px;
+  font-size: 16px;
+  width: 16px;
+  text-align: center;
+  text-decoration: none;
+  /* margin: 0px 2px; */
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* 
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+} */
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-telegram {
+  background: #0088cc;
+  color: white;
+}
+
+.fa-whatsapp {
+  background: #34b7f1;
+  color: white;
+}
+
+.fa-youtube {
+  background: #ff0000;
+  color: white;
+}
+
+/* end */

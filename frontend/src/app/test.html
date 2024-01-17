@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<title>Test</title>
+<meta name="description" content="this is old">
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+<script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
+<button>Change description</button>
+
+<script type='text/javascript'>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '2313005822306799',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v3.2'
+        });
+
+        console.log("response is ", "d");
+        FB.ui({
+            method: 'share_open_graph',
+            action_type: 'og.shares',
+            action_properties: JSON.stringify({
+                object: {
+                    'og:url': 'www.bethtube.com', // your url to share
+                    'og:title': 'first one',
+                    'og:site_name': 'beth tube ',
+                    'og:description': 'this is entertaiment website',
+                    'og:image': 'http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg', //
+                    'og:image:width': '250', //size of image in pixel
+                    'og:image:height': '257'
+                }
+            })
+        }, function(response) {
+            console.log("response is ", response);
+        });
+    };
+
+    $('button').on('click', function() {
+        // Just replacing the value of the 'content' attribute will not work.
+        $('meta[name=description]').remove();
+        $('head').append('<meta name="description" content="this is new">');
+        FB.ui({
+            method: 'feed',
+            link: 'https://developers.facebook.com/docs/'
+        }, function(response) {});
+        FB.ui({
+            method: 'share_open_graph',
+            action_type: 'og.shares',
+            action_properties: JSON.stringify({
+                object: {
+                    'og:url': 'www.bethtube.com', // your url to share
+                    'og:title': 'first one',
+                    'og:site_name': 'beth tube ',
+                    'og:description': 'this is entertaiment website',
+                    'og:image': 'http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg', //
+                    'og:image:width': '250', //size of image in pixel
+                    'og:image:height': '257'
+                }
+            })
+        }, function(response) {
+            console.log("response is ", response);
+        });
+
+
+    });
+</script>

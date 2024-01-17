@@ -1,0 +1,56 @@
+.manage-container {
+  height: 100%;
+  width: 96%;
+  padding: 20px 5px;
+  min-height: 600px;
+}
+
+.manage-side-nav {
+  flex: 1;
+}
+
+.manage-side-nav-items {
+  flex: 1;
+  background: white;
+  padding: 0 10px 30px 10px;
+}
+
+.manage-content {
+  flex: 3;
+  background: white;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.add-video-form {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* mat-form-field{
+        width:280px;
+    } */
+
+mat-form-field {
+  width: 50%;
+}
+
+.message-div {
+  /* border: solid 0.5px gray; */
+  /* margin: 5px; */
+  width: 80%;
+  padding: 10px;
+}
+
+.name {
+  color: rgb(64, 136, 218);
+}
+
+.message {
+}
+
+.date {
+  font-size: 12px;
+  color: gray;
+}

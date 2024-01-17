@@ -1,0 +1,134 @@
+.toolbar {
+  background: #1565c0;
+  color: aliceblue;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  opacity: 60%;
+}
+
+.toolbar-menus {
+  display: flex;
+  width: 100%;
+}
+
+.menu1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menu2 {
+  flex: 1;
+}
+
+.search-div {
+  width: 50%;
+  height: 36px;
+  padding-right: 40px;
+  padding-left: 15px;
+  color: white;
+  background: #5c6bc0;
+  border-radius: 28px;
+  font-size: 14px;
+  align-items: center center;
+}
+
+.search-div input {
+  width: 100%;
+  color: #e8eaf6;
+  background: #5c6bc0;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  font-weight: bold;
+}
+
+.search-icon {
+  display: flex;
+  margin-top: 6px;
+  color: #c5cae9;
+  padding-right: 5px;
+}
+
+::placeholder {
+  color: #c5cae9;
+}
+
+.search-div input:hover {
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: aliceblue;
+  /* color: rgb(51, 50, 50); */
+  /* font-weight: 600; */
+}
+
+.home-logo-text span {
+}
+
+.home-logo-text {
+  font-size: 15px;
+}
+
+a:hover,
+a:active {
+  color: rgb(199, 196, 196);
+}
+
+#menu-items {
+  list-style: none;
+}
+
+#menu-items li {
+  padding: 0 5px;
+}
+
+#menu-icon {
+  cursor: pointer;
+  margin-right: 10px;
+  /* color: grey */
+}
+
+.my-login-dialog,
+.my-login-dialog {
+  border-radius: 25px;
+  background: #1565c0;
+}
+
+.userIcon {
+  height: 35px;
+  border-radius: 50%;
+}
+
+.mat-menu-panel,
+.s {
+  padding: 20px;
+  margin: 0;
+}
+
+.mat-menu-content {
+  padding: 0px;
+  margin: 0;
+}
+
+.active {
+  color: orange;
+}
+
+.more-btn a {
+  color: black;
+}
+
+.more-menu {
+  color: black;
+  padding: 8px 20px 8px 20px;
+  margin: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center center;
+  background: white;
+}

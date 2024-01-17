@@ -1,0 +1,135 @@
+<mat-toolbar *ngIf="isBrowser" class="toolbar" [class.mat-elevation-z4]="false">
+
+    <mat-icon id="menu-icon" *ngIf="menu" (click)="menuOnClick()">menu</mat-icon>
+    <span>&nbsp;&nbsp;</span>
+    <a class="home-logo-text" [routerLink]="['/']">BethTube
+    </a>
+
+    <div class="toolbar-menus">
+
+        <div class="menu2" fxLayoutAlign="end">
+            <ul *ngIf="!isMobile" id="menu-items" fxLayout="row" fxLayoutGap="20px">
+
+                <li>
+                    <a *ngIf="window.innerWidth>=750" class="home-logo-text" [routerLink]="['/']"
+                        routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}"> Home
+                    </a>
+                </li>
+
+                <li>
+                    <a class="home-logo-text" [routerLink]="['category/temp/page']"
+                        [queryParams]="{category:'movie',page:1}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}">
+                        Movie
+                    </a>
+                </li>
+                <li>
+                    <a class="home-logo-text" [routerLink]="['category/temp/page']"
+                        [queryParams]="{category:'drama',page:1}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}">
+                        Drama
+                    </a>
+                </li>
+                <li>
+                    <a class="home-logo-text" [routerLink]="['category/temp/page']"
+                        [queryParams]="{category:'music',page:1}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}">Music
+                    </a>
+                </li>
+                <li>
+                    <a class="home-logo-text" [routerLink]="['category/temp/page']"
+                        [queryParams]="{category:'comedy',page:1}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                    true}">Comedy
+                    </a>
+                </li>
+                <li>
+                    <a class="home-logo-text" [matMenuTriggerFor]="menu" [matMenuTriggerFor]="beforeMenu"
+                        style="padding-bottom: 5px ">
+                        <span style="  display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        margin-top: 2px;">
+                            More<mat-icon class="mat-18" style="padding: 3px 0 0 2px">expand_more</mat-icon>
+                        </span>
+                    </a>
+
+                    <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button> -->
+                    <mat-menu #menu="matMenu" #beforeMenu="matMenu" xPosition="before" class="more-btn">
+                        <div>
+                            <a class="more-menu" [routerLink]="['category/temp/page']"
+                                [queryParams]="{category:'tvshow',page:1}" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact:
+                                    true}">TV Show
+                            </a>
+                            <a class="more-menu" [routerLink]="['category/temp/page']"
+                                [queryParams]="{category:'sport',page:1}" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact:
+                                    true}">Sport
+                            </a>
+                            <a class="more-menu" [routerLink]="['category/temp/page']"
+                                [queryParams]="{category:'technology',page:1}" routerLinkActive="active">Technology
+                            </a>
+                            <a class="more-menu" [routerLink]="['category/temp/page']"
+                                [queryParams]="{category:'tips',page:1}" routerLinkActive="active">Tips
+                            </a>
+                            <a class="more-menu" [routerLink]="['category/temp/page']"
+                                [queryParams]="{category:'others',page:1}" routerLinkActive="active">Others
+                            </a>
+                        </div>
+
+
+                    </mat-menu>
+
+                </li>
+            </ul>
+
+            <ul id="menu-items" fxLayout="row" fxLayoutGap="0">
+                <li *ngIf="authService.isLogedIn()">
+                    <!-- <span>{{authService.getUser().fname}}</span> -->
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <img class="userIcon" [src]="authService.getUser().photourl" alt="">
+                    </button>
+
+                    <mat-menu #menu="matMenu" class="s">
+                        <div fxLayout="row" fxLayoutAlign="center center"
+                            style="background: #e8eaf6;padding: 0 0 0 10px">
+                            <img class="userIcon" [src]="authService.getUser().photourl" alt="">
+                            <div fxLayout="column" style="padding :10px;background: #e8eaf6;margin: 0 10px">
+                                <span
+                                    class="home-logo-text">{{authService.getUser().fname}}{{authService.getUser().lname}}</span>
+                                <span>{{authService.getUser().email}}</span>
+                            </div>
+                        </div>
+                        <button mat-menu-item (click)="authService.logout()">Logout</button>
+                        <!-- <button mat-menu-item>Newest first</button>
+                        <button mat-menu-item>Older first</button> -->
+                    </mat-menu>
+                </li>
+                <li *ngIf="!authService.isLogedIn() && !staffAuthService.isLogedIn()"><a class="home-logo-text"
+                        (click)="LoginDialog()">SIGN
+                        IN</a></li>
+                <!-- <li *ngIf="authService.isLogedIn()"><a (click)="authService.logout()">Logout</a></li> -->
+
+                <li><a *ngIf="staffAuthService.isLogedIn()" [routerLink]="['/login/manageVideoList']"
+                        class="home-logo-text" routerLinkActive="active">Manage</a></li>
+                <li *ngIf="staffAuthService.isLogedIn()">
+                    <!-- <span>{{staffAuthService.getUser().fname}}</span> -->
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                            <h3 class="home-logo-text">{{staffAuthService.getUser().fname}}</h3>
+                            <mat-icon class="mat-18">keyboard_arrow_down</mat-icon>
+                        </div>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="staffAuthService.logout()">Logout</button>
+                        <button mat-menu-item>Newest first</button>
+                        <button mat-menu-item>Older first</button>
+                    </mat-menu>
+
+                </li>
+                <!-- <li *ngIf="staffAuthService.isLogedIn()"><a (click)="staffAuthService.logout()">Logout</a></li> -->
+            </ul>
+        </div>
+    </div>
+</mat-toolbar>

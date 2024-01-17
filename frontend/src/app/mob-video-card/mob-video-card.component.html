@@ -1,0 +1,13 @@
+<div class="container">
+  <img class="image" [src]="data.image" alt="Image is not found">
+  <div class="text-div" fxLayout="column">
+    <span class="title" [matTooltip]="data.title" matTooltipClass="tooltip">
+      {{data.title}}
+    </span>
+    <span class="author" href="#">{{ data.date | date }}</span>
+
+    <span class="view" *ngIf="views$">
+      {{views$ | number}} views
+    </span>
+  </div>
+</div>

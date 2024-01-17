@@ -1,0 +1,52 @@
+.people-comment {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.people-comment-div {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: gray;
+}
+
+.people-comment-image {
+  min-width: 40px;
+  min-height: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.people-comment-name {
+  text-decoration: none;
+  font-size: 14px;
+  color: gray;
+}
+
+.people-comment-comment {
+  font-size: 14px;
+  color: black;
+  width: 90%;
+  height: auto;
+}
+
+.comments-controle {
+  font-size: 12px;
+  color: blue;
+}
+
+.comments-controle a {
+  text-decoration: none;
+  color: blue;
+  font-size: 12px;
+}
+
+.comments-controle button {
+  color: gray;
+  background: none;
+  border: none;
+}

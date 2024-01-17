@@ -1,0 +1,63 @@
+.container {
+    height: 125px;
+    min-width: 340px;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    background: rgb(221, 239, 247);
+}
+
+.image {
+    border-style: none;
+    margin: 0;
+    padding: 0;
+    width: 170px;
+    min-width: 170px;
+    cursor: pointer;
+}
+
+.text-div {
+    font-size: 0.800em;
+}
+
+.title {
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 2px;
+    max-height: 38px;
+    overflow: hidden;
+    padding-left: 0px;
+}
+
+::ng-deep .tooltip {
+    background: white;
+    color: black !important;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    border: 0.5px solid gray;
+}
+
+.author {
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 5px;
+    max-height: 16px;
+    overflow: hidden;
+    color: gray
+}
+
+.view {
+    font-size: 12px;
+    margin-bottom: 5px;
+    max-height: 16px;
+    overflow: hidden;
+    color: gray
+}
+
+.icon {
+    color: #323232;
+    padding: 0;
+    margin: 0;
+}

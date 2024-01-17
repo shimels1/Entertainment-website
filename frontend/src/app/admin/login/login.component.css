@@ -1,0 +1,17 @@
+mat-form-field {
+  width: 280px;
+}
+
+.login-form {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+mat-card {
+  height: 350px;
+  padding: 20px 55px 0 55px;
+}

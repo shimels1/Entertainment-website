@@ -1,0 +1,24 @@
+<section class="login-form">
+
+    <mat-card>
+        <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="login(f)">
+
+            <h3>Staff Login</h3>
+            <h4 *ngIf="error$!=''" style="color:red">{{error$}}</h4>
+            <mat-form-field>
+                <input type="email" matInput placeholder="email" [email]="true" ngModel name="email" required
+                    #email="ngModel">
+                <mat-error *ngIf="!email.value">Email required. </mat-error>
+                <mat-error *ngIf="!email.valid && email.value">Email is not valid. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="password" minlength='3' matInput placeholder="password" ngModel name="password" required
+                    #password="ngModel">
+                <mat-error *ngIf="!password.value">Password required. </mat-error>
+                <mat-error *ngIf="password.value && !password.valid">Password length should be > 10. </mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Login</button>
+        </form>
+    </mat-card>
+</section>

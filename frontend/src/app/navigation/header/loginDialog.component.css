@@ -1,0 +1,23 @@
+.icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+}
+
+button {
+    padding: 5px 20px;
+    flex: 1
+}
+
+.close-btn {
+    padding: 0;
+    margin: 0;
+    background: white
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}

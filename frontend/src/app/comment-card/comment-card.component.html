@@ -1,0 +1,29 @@
+<div class="people-comment" fxLayout="row" fxLayoutGap="15px">
+    <img *ngIf="$user" class="people-comment-image" [src]="$user.photoUrl" alt="no image found">
+    <div fxLayout="column" fxLayoutGap="1px">
+        <div style="font-size: 14px;color: gray">
+            <a *ngIf="$user" class="people-comment-name">{{$user.fname}} {{$user.lname}}</a> &nbsp;&nbsp;{{ comment.date
+            | date }}
+        </div>
+        <p class="people-comment-comment">{{comment.comment}}</p>
+        <div class="comments-controle" fxLayout="row">
+            <button [style.color]="IsUserLikeThisComment$? '#1565c0' : 'gray' " *ngIf="userAuthService.isLogedIn()"
+                style="text-align:left" mat-button (click)="likeComment(comment.idcomment)">
+                <mat-icon class="mat-18" style="font-size: 16px;margin-top: 10px">thumb_up</mat-icon>
+                {{like$}}
+            </button>
+            <button *ngIf="!userAuthService.isLogedIn()" style="text-align:left" mat-button
+                [matMenuTriggerFor]="likeMenu">
+                <mat-icon class="mat-18" style="font-size: 16px;margin-top: 10px">thumb_up</mat-icon>
+                {{like$}}
+            </button>
+            <mat-menu #likeMenu="matMenu">
+                <div style="padding:25px 20px">
+                    Sign in to like this video.
+                </div>
+                <mat-divider></mat-divider>
+                <button mat-button (click)="LoginDialog()" style="color:#1565c0;margin:5px 0 0 5px">SIGN IN</button>
+            </mat-menu>
+        </div>
+    </div>
+</div>

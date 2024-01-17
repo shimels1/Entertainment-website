@@ -1,0 +1,53 @@
+<div fxLayout="column" style="    background: #e8eaf6;" fxLayoutAlign="center center">
+
+    <div class="manage-container" fxLayout="row" fxLayoutGap="15px">
+        <div class="manage-side-nav">
+            <div class="manage-side-nav-items" fxLayout="column">
+                <app-manage-panel></app-manage-panel>
+            </div>
+        </div>
+        <div class="manage-content" fxLayout="column" fxLayoutGap="10px">
+
+            <form fxLayout="column" fxLayoutGap="10px" class="add-video-form" fxLayoutAlign="center center" #f="ngForm"
+                (ngSubmit)="post(f)">
+                <h3>Add Video</h3><br>
+                <h3 *ngIf="error$!=''" style="color:red">{{error$}}</h3>
+                <h3 *ngIf="success$!=''" style="color:green">{{success$}}<br></h3>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="enter video id" ngModel name="vid" minlength="6" required
+                        #name="ngModel">
+                    <mat-error *ngIf="!name.value">vid require. </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="enter the title" ngModel name="title" minlength="6"
+                        required #name="ngModel">
+                    <mat-error *ngIf="name.value && !name.valid">title must be greater than 6.. </mat-error>
+                    <mat-error *ngIf="!name.value">title require. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select placeholder="Catagory" ngModel name="catagory" required #catagory="ngModel">
+                        <mat-option *ngFor="let cat of category" [value]="cat.value">
+                            {{cat.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="!catagory.valid">Catagory is require. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <textarea type="text" minlength="10" matInput placeholder="discription" ngModel name="discription"
+                        required #discription="ngModel"></textarea>
+                    <mat-error *ngIf="discription.value && !discription.valid">
+                        discription character must be greater than 10.</mat-error>
+                    <mat-error *ngIf="!discription.value">discription required.</mat-error>
+                </mat-form-field>
+
+                <button *ngIf="postBtn" type="submit" mat-raised-button color="primary"
+                    [disabled]="!f.valid">Post</button>
+                <button *ngIf="!postBtn" type="button" mat-raised-button>Waite...</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>

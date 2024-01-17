@@ -1,0 +1,62 @@
+<div fxLayout="column" style="    background: #e8eaf6;" fxLayoutAlign="center center">
+
+    <div class="manage-container" fxLayout="row" fxLayoutGap="15px">
+        <div class="manage-side-nav">
+            <div class="manage-side-nav-items" fxLayout="column">
+                <app-manage-panel></app-manage-panel>
+            </div>
+        </div>
+        <div class="manage-content" fxLayout="column" fxLayoutGap="10px">
+            <table mat-table [dataSource]="dataSource">
+
+
+                <ng-container matColumnDef="First Name">
+                    <th mat-header-cell *matHeaderCellDef> First Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.fname}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="User Name">
+                    <th mat-header-cell *matHeaderCellDef> User Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Phone">
+                    <th mat-header-cell *matHeaderCellDef> Phone </th>
+                    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Role">
+                    <th mat-header-cell *matHeaderCellDef> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-raised-button *ngIf="element.status=='off'"
+                            style="background: red;color: white;width: 85px;"
+                            (click)="activeDiactive(element.email)">Active</button>
+                        <button mat-raised-button *ngIf="element.status=='on'"
+                            style="background: green;color: white;width: 85px;"
+                            (click)="activeDiactive(element.email)">Diactive</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>

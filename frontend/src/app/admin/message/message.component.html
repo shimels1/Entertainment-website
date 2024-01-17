@@ -1,0 +1,23 @@
+<div fxLayout="column" style="    background: #e8eaf6;" fxLayoutAlign="center center">
+
+    <div class="manage-container" fxLayout="row" fxLayoutGap="15px">
+        <div class="manage-side-nav">
+            <div class="manage-side-nav-items" fxLayout="column">
+                <app-manage-panel></app-manage-panel>
+            </div>
+        </div>
+        <div class="manage-content" fxLayout="column" fxLayoutGap="10px">
+            <h3>messages</h3>
+
+            <div class="message-div" *ngFor="let message of message$" fxLayout="column" fxLayoutAlign="center"
+                fxLayoutGap="5px">
+                <span class="name">{{message.name}} &nbsp; ({{message.email}})</span>
+                <span class="message">{{message.message}}</span>
+                <span class="date">{{ message.date | date }}</span>
+                <mat-divider></mat-divider>
+            </div>
+
+        </div>
+    </div>
+
+</div>

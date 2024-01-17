@@ -1,0 +1,16 @@
+<app2-header (sidenavToggle)="sidenav.toggle()" class="toolbar-container">
+</app2-header>
+<mat-sidenav-container fxLayout="column" class="sidenav-container">
+
+    <mat-sidenav [opened]="sidenavOpened" #sidenav [mode]="sidenaveMode">
+        <app2-sidnav (sidenavToggle)="sidenav.close()"></app2-sidnav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <main>
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+            <!-- <div style="padding: 5px;background: #e8eaf6"></div> -->
+            <app-footer></app-footer>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

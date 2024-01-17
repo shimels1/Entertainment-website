@@ -1,0 +1,119 @@
+.container {
+  height: 100px;
+  min-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.image {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-size: cover;
+}
+
+.text-div {
+  font-size: 0.8em;
+}
+
+.title {
+  font-size: 14px;
+  color: #424242;
+  text-decoration: none;
+  margin-bottom: 5px;
+  max-height: 52px;
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+::ng-deep .tooltip {
+  background: white;
+  color: black !important;
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+  border: 0.5px solid gray;
+}
+
+.author {
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  max-height: 16px;
+  overflow: hidden;
+  color: gray;
+}
+
+.view {
+  padding-left: 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  max-height: 16px;
+  overflow: hidden;
+  color: gray;
+}
+
+.icon {
+  color: #323232;
+  padding: 0;
+  margin: 0;
+}
+
+/* hover play button */
+
+.image-container {
+  position: relative;
+  width: 175px;
+  min-width: 175px;
+  /* width: 100%; */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  /* background-color: #008CBA; */
+  background-color: rgba(23, 30, 34, 0.2);
+  cursor: pointer;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.play_arrow {
+  color: black;
+  font-size: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  background: white;
+  cursor: pointer;
+  border-radius: 60%;
+}
+
+/* end */
+
+.overlay {
+  transition: transform 0.5s ease;
+}
+
+/* end */

@@ -1,0 +1,41 @@
+
+.video-card {
+    max-width: 250px;
+    max-height: 400px;
+    display: flex;
+    cursor: pointer;
+    padding: 0;
+  }
+.image{
+  
+  width: 100%;
+  height:140px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  }
+  .title-text-div{
+    /* display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0; */
+
+  }
+  .title-text{
+    font-size: 15px;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-weight: 500;
+    max-lines: 1; */
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+  }
+  .date-and-view-text{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flex;
+  }
+

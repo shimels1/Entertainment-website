@@ -1,0 +1,82 @@
+.manage-container {
+  height: 100%;
+  width: 96%;
+  padding: 20px 5px;
+  min-height: 600px;
+  background: #e8eaf6;
+}
+
+.manage-side-nav {
+  flex: 1;
+  height: auto;
+  background: #e8eaf6;
+}
+
+.manage-side-nav-items {
+  flex: 1;
+  background: white;
+  padding: 0 10px 30px 10px;
+}
+
+.manage-content {
+  flex: 3;
+  background: white;
+  padding: 20px 10px 40px 20px;
+  min-height: 500px;
+}
+
+.video-container {
+  flex-wrap: wrap;
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 30px 10px 15px 10px;
+}
+
+.video-cards {
+  flex-wrap: wrap;
+  width: 340px;
+  height: auto;
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 10px;
+  border: 0.2px solid gray;
+  border-radius: 3px;
+}
+
+/* pagination */
+
+.pagination {
+  padding-bottom: 10px;
+}
+
+.pagination-menu {
+  background: white;
+  /* border: 1px solid grey; */
+  border-radius: 10px;
+  width: 90%;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.pagination-menu button,
+div {
+  background: white;
+  color: black;
+  /* transition: none !important; */
+  box-shadow: none !important;
+  /* flex: 1;
+    displa */
+}
+
+/* pagination end */

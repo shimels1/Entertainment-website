@@ -1,0 +1,95 @@
+<section class="message-form">
+    <div *ngIf="!isBrowser" style="color: #424242;margin-top:10px">
+        <p> Loading... </p>
+    </div>
+    <div class="message-div" *ngIf="isBrowser">
+        <form fxLayout="column" fxLayoutGap="15px
+        " fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="send(f)">
+
+            <h3 style="color: #424242;">Send us message</h3>
+            <mat-form-field *ngIf="width>525" style="width:400px">
+                <input type="name" matInput placeholder="full Name" minlength="2" ngModel name="name" required
+                    #name="ngModel">
+                <mat-error *ngIf="!name.value">Name required. </mat-error>
+                <mat-error *ngIf="!name.valid && name.value">Name is too short. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width>525" style="width:400px">
+                <input type="email" matInput placeholder="Email Address" [email]="true" ngModel name="email" required
+                    #email="ngModel">
+                <mat-error *ngIf="!email.value">Email required. </mat-error>
+                <mat-error *ngIf="!email.valid && email.value">Email is not valid. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width>525" style="width:400px">
+                <textarea type="name" ngModel minlength='6' matInput #message="ngModel" placeholder="Message"
+                    name="message" required style="height: 60px;max-height: 300px;"></textarea>
+                <mat-error *ngIf="!message.value">Message required. </mat-error>
+                <mat-error *ngIf="!message.valid && message.value">Message is to short. </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="width>425 && width<=525 " style="width:300px">
+                <input type="name" matInput placeholder="full Name" minlength="2" ngModel name="name" required
+                    #name="ngModel">
+                <mat-error *ngIf="!name.value">Name required. </mat-error>
+                <mat-error *ngIf="!name.valid && name.value">Name is too short. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width>425 && width<=525 " style="width:300px">
+                <input type="email" matInput placeholder="Email Address" [email]="true" ngModel name="email" required
+                    #email="ngModel">
+                <mat-error *ngIf="!email.value">Email required. </mat-error>
+                <mat-error *ngIf="!email.valid && email.value">Email is not valid. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width>425 && width<=525 " style="width:300px">
+                <textarea type="name" ngModel minlength='6' matInput #message="ngModel" placeholder="Message"
+                    name="message" required style="height: 60px;max-height: 300px;"></textarea>
+                <mat-error *ngIf="!message.value">Message required. </mat-error>
+                <mat-error *ngIf="!message.valid && message.value">Message is to short. </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="width>310 && width<=425" style="width:190px">
+                <input type="name" matInput placeholder="full Name" minlength="2" ngModel name="name" required
+                    #name="ngModel">
+                <mat-error *ngIf="!name.value">Name required. </mat-error>
+                <mat-error *ngIf="!name.valid && name.value">Name is too short. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width>310 && width<=425" style="width:190px">
+                <input type="email" matInput placeholder="Email Address" [email]="true" ngModel name="email" required
+                    #email="ngModel">
+                <mat-error *ngIf="!email.value">Email required. </mat-error>
+                <mat-error *ngIf="!email.valid && email.value">Email is not valid. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width>310 && width<=425" style="width:190px">
+                <textarea type="name" ngModel minlength='6' matInput #message="ngModel" placeholder="Message"
+                    name="message" required style="height: 60px;max-height: 300px;"></textarea>
+                <mat-error *ngIf="!message.value">Message required. </mat-error>
+                <mat-error *ngIf="!message.valid && message.value">Message is to short. </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="width<=310" style="width:120px">
+                <input type="name" matInput placeholder="full Name" minlength="2" ngModel name="name" required
+                    #name="ngModel">
+                <mat-error *ngIf="!name.value">Name required. </mat-error>
+                <mat-error *ngIf="!name.valid && name.value">Name is too short. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width<=310" style="width:120px">
+                <input type="email" matInput placeholder="Email Address" [email]="true" ngModel name="email" required
+                    #email="ngModel">
+                <mat-error *ngIf="!email.value">Email required. </mat-error>
+                <mat-error *ngIf="!email.valid && email.value">Email is not valid. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="width<=310" style="width:120px">
+                <textarea type="name" ngModel minlength='6' matInput #message="ngModel" placeholder="Message"
+                    name="message" required style="height: 60px;max-height: 300px;"></textarea>
+                <mat-error *ngIf="!message.value">Message required. </mat-error>
+                <mat-error *ngIf="!message.valid && message.value">Message is to short. </mat-error>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Send</button>
+
+        </form>
+    </div>
+</section>

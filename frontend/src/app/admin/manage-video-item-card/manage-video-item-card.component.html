@@ -1,0 +1,46 @@
+<div class="container" fxLayoutGap="10px">
+    <img class="image" [src]="data.image" (click)="playVideo(data.idvideo)" alt="Image is not found">
+    <div class="text-div" fxLayout="column">
+        <div fxLayout="row">
+            <span class="title" [matTooltip]="data.title" matTooltipClass="tooltip">
+                {{data.title}}
+            </span>
+
+            <!-- <div [matMenuTriggerFor]="menu" style="cursor:pointer"> -->
+            <div style="cursor:pointer" style="display: flex;flex-direction: row">
+                <!-- <mat-icon class="mat-18">more_vert</mat-icon> -->
+                <mat-icon class="mat-18" (click)="editorialPickSwitcher()" style="color: rgb(247, 166, 16)"
+                    *ngIf="data['isEditorialPick']==='true'">star_rate</mat-icon>
+                <mat-icon class="mat-18" (click)="editorialPickSwitcher()" style="color:gray"
+                    *ngIf="data['isEditorialPick']!=='true'">star_border</mat-icon>
+                <!-- <mat-icon class="mat-18" (click)="editorialPickSwitcher()" style="color:gray" *ngIf="data['isEditorialPick']!=='true'">star_rate</mat-icon> -->
+
+                <span class="fa fa-trash" style="color: red;font-size: 15px;padding:3px;" (click)="openDialog()"></span>
+            </div>
+            <!-- <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editorialPickSwitcher()">Set To Editorial pick </button>
+            </mat-menu> -->
+        </div>
+        <span style="color:blue" [matTooltip]="user$.fname+ ' '+user$.lname" matTooltipClass="tooltip">
+            {{user$.userName}}
+        </span>
+        <span class="author" href="#">{{ data.date | date}}</span>
+
+        <span class="view">
+            {{data.views}} view
+        </span>
+        <div fxLayout="row">
+            <mat-slide-toggle (change)="toggle($event)" [checked]="data.status=='on'">
+                {{ data.status | uppercase }}</mat-slide-toggle>
+            <!-- <div fxLayout="row" fxLayoutAlign="end" style="width:100%;">
+                <mat-icon class="mat-18" style="color: rgb(247, 166, 16)" *ngIf="data['isEditorialPick']==='true'">star_rate</mat-icon>
+            </div> -->
+        </div>
+    </div>
+    <div>
+        <!-- <mat-slide-toggle>{{ data.status | uppercase }}</mat-slide-toggle> -->
+    </div>
+    <!-- <button mat-mini-fab (click)="playVideo(data)" style="background: white;color: black;box-shadow: none !important;">
+        <mat-icon class="mat-18">play_arrow</mat-icon>
+    </button> -->
+</div>

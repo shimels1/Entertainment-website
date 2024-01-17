@@ -1,0 +1,34 @@
+.about-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-top {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-content {
+  width: 80%;
+  background: white;
+  margin: 20px 0;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 0.5px #cfd8dc solid;
+}
+
+pre {
+  color: rgb(51, 50, 50);
+  /* font-size: 16px; */
+  /* font-style: oblique; */
+  text-indent: 50px;
+  letter-spacing: 2px;
+  font-size: 12pt;
+  /* font-family: Georgia, Times, "Times New Roman", serif; */
+}

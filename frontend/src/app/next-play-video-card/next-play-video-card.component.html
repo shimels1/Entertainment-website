@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="image-container">
+        <img class="image" [src]="data.image" alt="Image is not found">
+        <div class="overlay">
+            <mat-icon class="play_arrow">play_circle_filled</mat-icon>
+        </div>
+    </div>
+    <div class="text-div" fxLayout="column">
+        <span class="title" [matTooltip]="data.title" matTooltipClass="tooltip" aria-label="Button that shows a red tooltip">
+      {{data.title}}
+  </span>
+        <span class="author" href="#">{{ data.date | date }}</span>
+
+        <span class="view" *ngIf="views$">
+      {{views$ | number}} views
+    </span>
+
+    </div>
+</div>

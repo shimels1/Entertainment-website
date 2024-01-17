@@ -1,0 +1,27 @@
+<mat-nav-list class="nav-contener">
+    <a mat-list-item [routerLink]="['/login/manageVideoList']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>movie</mat-icon>
+        Video
+    </a>
+    <a mat-list-item [routerLink]="['/login/addVideo']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>add</mat-icon>
+        Add Video
+    </a>
+    <a mat-list-item *ngIf="staffAuthService.getUser().role=='admin'" [routerLink]="['/login/users']"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>supervisor_account</mat-icon>
+        Users
+    </a>
+    <a mat-list-item *ngIf="staffAuthService.getUser().role=='admin'" [routerLink]="['/login/addUser']"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>person_add</mat-icon>
+        Add Users
+    </a>
+    <a mat-list-item *ngIf="staffAuthService.getUser().role=='admin'" [routerLink]="['/login/message']"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>message</mat-icon>
+        Message
+    </a>
+</mat-nav-list>
