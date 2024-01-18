@@ -1,0 +1,1 @@
+The Entertainment website is a dynamic platform developed using Angular, Node.js, and MySQL. It offers a diverse collection of videos for users to watch and enjoy. With features such as user registration, video catalog, personalized recommendations, and social interaction, the website provides an engaging entertainment experience.
